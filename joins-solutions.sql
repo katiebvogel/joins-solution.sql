@@ -29,6 +29,10 @@ SELECT * FROM customers JOIN addresses ON (customers.id = addresses.customer_id)
 -- OR.. For a little LESS information:
 SELECT customers.last_name, orders.total  FROM customers JOIN addresses ON (customers.id = addresses.customer_id) JOIN orders ON orders.address_id = addresses.id;
 
+--Or to answer the question very specifically:
+SELECT customers.last_name, count(orders.total)  FROM customers JOIN addresses ON (customers.id = addresses.customer_id) JOIN orders ON (orders.address_id = addresses.id) GROUP BY customers.last_name;
+
+
 
 
 -- 6. How many customers do we have?
