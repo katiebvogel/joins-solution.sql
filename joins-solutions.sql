@@ -8,7 +8,11 @@ SELECT * FROM orders INNER JOIN line_items ON orders.id = line_items.order_id;
 --3.  Which warehouses have cheetos?
 SELECT * FROM products JOIN warehouse_product ON (products.description = 'cheetos' AND products.id = warehouse_product.product_id) JOIN warehouse ON warehouse.id = warehouse_product.warehouse_id;
 
---OR
+--OR PUT the WHERE statement at the end instead of using an AND statement within your Join statements.
+SELECT warehouse.warehouse FROM products JOIN warehouse_product ON products.id = warehouse_product.product_id JOIN warehouse ON warehouse.id = warehouse_product.warehouse_id
+WHERE products.description = 'cheetos';
+
+
 
 SELECT warehouse_id FROM warehouse_product INNER JOIN products ON warehouse_product.product_id = 5;
 
