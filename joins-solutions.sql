@@ -26,6 +26,11 @@ SELECT warehouse.warehouse FROM products JOIN warehouse_product ON (products.des
 
 SELECT * FROM customers JOIN addresses ON (customers.id = addresses.customer_id) JOIN orders ON orders.address_id = addresses.id;
 
+-- OR.. For a little LESS information:
+SELECT customers.last_name, orders.total  FROM customers JOIN addresses ON (customers.id = addresses.customer_id) JOIN orders ON orders.address_id = addresses.id;
+
+
+
 -- 6. How many customers do we have?
 
 SELECT count(customers.id) FROM customers;
